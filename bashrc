@@ -2,9 +2,11 @@
 
 export PATH=/usr/local/bin:$PATH
 
-. $HOME/.asdf/asdf.sh
+. $(brew --prefix asdf)/asdf.sh
 
-. $HOME/.asdf/completions/asdf.bash
+. $(brew --prefix asdf)/etc/bash_completion.d/asdf.bash
+
+export BASH_SILENCE_DEPRECATION_WARNING=1
 
 # If not running interactively, don't do anything
 if [ -n "$PS1" ]; then
@@ -181,7 +183,7 @@ if [ -n "$PS1" ]; then
 
   # And save all those wonderful settings from above
   export PS1 LS_COLORS LSCOLORS
-  export EDITOR='subl -n -w'
+  export EDITOR='code -w'
 
   # vi mode must come *BEFORE* any additional keybindings
   # Keep that neat functionality from emacs mode where CTRL-L clears the screen
